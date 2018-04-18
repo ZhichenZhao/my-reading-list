@@ -57,13 +57,44 @@
 * 是对resnet的一种阐述和改进，只不过占用空间是个问题。在cifar上是最好的结果。看起来道理挺到位的，不知为何没有在更大的地方work
 
 ---
-## crowd counting
+## Crowd Counting
 ### Single-Image Crowd Counting via Multi-Column Convolutional Neural Network, CVPR 2016
 * 对于crowd不是直接预测cnn回归器预测人数，而是做heat map，一方面这样的数据可以变相的aug好多，另一方面，从heat map到多少人的变换规律非常清楚，直接数就行了。这样就不要把这个任务也丢给网络来增加难度了。另外提出了一个新的数据集shanghaitech
 ### Switching Convolutional Neural Network for Crowd Counting，CVPR 2017
 * 用一个switch网络从多个尺度的网络里面选一个，两种评价好不好的方式，mse即均方误差，还有mae，均绝对误差。
 
+---
+## Face Detection
+### Scale Aware Face Detection, CVPR,2017
+* 思路是，之前的工作想要在测试时防止尺度的检测影响的话，需要多个尺度检测再融合，但是这样计算量会很大。这篇论文使用一个小网络对尺度进行一个预先的预测，再调整到合适的尺度下用单尺度的fasterrcnn进行检测。
 
+### Mixed Supervised Object Detection with Robust Objectness Transfer，PAMI，2018
+* 讲了怎么样在有监督和弱监督混合的场景中做detection，训练objectness的信息。首先在全监督的数据集上训objectness，对于只有分类标签的数据，不能直接训练，这里和gan思想有点类似，训练一个分类器来判断输入是从哪一个domain来的，然后为了对抗，把这个地方传回去的梯度乘以-1，也就是让之前的部分训得分不出是哪个domain，就把两个不同分布的差异抑制了，这样训出来的objectness就可以广泛的使用。
+
+---
+## Face Recognition
+### SphereFace: Deep Hypersphere Embedding for Face Recognition，CVPR，2017
+* 通过修改softmax中的角度加大margin，来获取更小的类内方差
+* 在softmax中加上margin的操作，通过加大约束能在球面上把决策区域变成一个一个圆形，感觉收的很紧，听有道理的
+
+### Not Afraid of the Dark: NIR-VIS Face Recognition via Cross-spectral Hallucination and Low-rank Embedding,CVPR,2017
+* 对于红外图像，把它伪造成rgb图像，然后按照rgb的网络去做识别
+
+### VGGFace2: A dataset for recognising faces across pose and age，arxiv，2017
+* 建立了一个新的benchmark VGGface2,这个数据集的重点是涵盖了所选的人的不同的角度和年龄段。
+
+### Large-scale Datasets: Faces with Partial Occlusions and Pose Variations in the Wild，arXiv，2017
+* 是一个大pose和遮挡的脸部数据集
+
+### Longitudinal Study of Child Face Recognition， arXiv，2017
+* 跟踪了一些小孩从2-18岁的图片来探究随年龄变化后人脸识别的性能，图片数量上还是有限，但是对于拐卖，寻人这样的问题意义比较大。
+
+### Reconstruction-Based Disentanglement for Pose-invariant Face Recognition，ICCV，2017
+* 把两张不同pose的人脸，对feature进行disentangle，一部分只保留identity信息，一部分保留pose信息，然后自己的两段特征，自己和别人的拼接特征再计算重建loss，用这种方式最后保留下的特征就可以不受pose影响了，这个idea（如果原创）的话还是很有启发意义的。
+* 用重建而不是feature matching，可以避免约束过强
+
+### Pose-Robust Face Recognition via Deep Residual Equivariant Mapping，CVPR，2018
+* sensetime的论文，主要是为了解决大pose的问题，从原始特征后面接一个变换输出新特征再加权求和，中间用系数控制正脸和侧脸的比例，相当于把正脸的feature和侧脸的加起来，使用比例松弛一下，这样更接近在同个空间中。
 
 
 
