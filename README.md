@@ -2,7 +2,6 @@
 这份笔记分为每种topic以及topic下的论文，topic按照字典序排列，论文按照时间顺序排列。
 
 ## base model
----
 ### Rectifier Nonlinearities Improve Neural Network Acoustic Models，ICML，2013
 * 提出了leaky RELU，为了防止一旦进入小与0就回不来，永远不激活的情况，可以让负的那一段又一个很小的斜率。
 
@@ -57,12 +56,12 @@
 ### FRACTALNET: ULTRA-DEEP NEURAL NETWORKS WITHOUT RESIDUALS，ICLR，2017
 * 是对resnet的一种阐述和改进，只不过占用空间是个问题。在cifar上是最好的结果。看起来道理挺到位的，不知为何没有在更大的地方work
 
-## crowd counting
 ---
-Single-Image Crowd Counting via Multi-Column Convolutional Neural Network, CVPR 2016
-对于crowd不是直接预测cnn回归器预测人数，而是做heat map，一方面这样的数据可以变相的aug好多，另一方面，从heat map到多少人的变换规律非常清楚，直接数就行了。这样就不要把这个任务也丢给网络来增加难度了。另外提出了一个新的数据集shanghaitech
-Switching Convolutional Neural Network for Crowd Counting，CVPR 2017
-用一个switch网络从多个尺度的网络里面选一个，两种评价好不好的方式，mse即均方误差，还有mae，均绝对误差。
+## crowd counting
+### Single-Image Crowd Counting via Multi-Column Convolutional Neural Network, CVPR 2016
+* 对于crowd不是直接预测cnn回归器预测人数，而是做heat map，一方面这样的数据可以变相的aug好多，另一方面，从heat map到多少人的变换规律非常清楚，直接数就行了。这样就不要把这个任务也丢给网络来增加难度了。另外提出了一个新的数据集shanghaitech
+### Switching Convolutional Neural Network for Crowd Counting，CVPR 2017
+* 用一个switch网络从多个尺度的网络里面选一个，两种评价好不好的方式，mse即均方误差，还有mae，均绝对误差。
 
 
 
