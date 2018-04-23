@@ -14,6 +14,11 @@
 
 ### Action Tubelet Detector for Spatio-Temporal Action Localization，ICCV，2017
 * stack连续几帧的feature，一起来过分类器出分出框，在frame level和video level上都是目前最好
+
+### Rethinking the Faster-RCNN Architecture for Temporal Action Localization，CVPR，2018
+* 思想是把fasterRCNN应用到动作的localization上，感觉很合理。
+* 实际操作中，图片里检测物体，物体的scale不会变得太大，但是动作的时长变化却很大，为了解决这个问题，用K个子网络，每个子网络不一样，而且就是为了获得指定感受野大小的序列特征。
+* 另一个方面是capture context，本来conv就是dilation的，那么context就是简单的二倍dilation就好了。
 ---
 
 ## Action Recognition
