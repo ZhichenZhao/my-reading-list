@@ -112,7 +112,10 @@
 * 对于两个分支的这种residual结构，在forward的时候用不同的系数乘以下，加起来是1,backward的时候也用不同的系数乘来传梯度，可以当作另一种dropout的方法，在cifar10,100上效果很好，但有一个问题是它所需要的epoch太长了（1800）
 
 ### FRACTALNET: ULTRA-DEEP NEURAL NETWORKS WITHOUT RESIDUALS，ICLR，2017
-* 是对resnet的一种阐述和改进，只不过占用空间是个问题。在cifar上是最好的结果。看起来道理挺到位的，不知为何没有在更大的地方work
+* 是对resnet的一种阐述和改进，只不过占用空间是个问题。在cifar上是最好的结果。
+
+### Residual Connections Encourage Iterative Inference， ICLR，2018
+* 对于resnet，有几个观察和探索。说在resnet中，浅层做representation learning，而深层则是feature refinement。为了证明第二点，有两个方面，第一是看h的相对幅度变化，刚开始很大，到后面慢慢变小，第二个实验是去掉最后的一层看看准确率会不会掉很多。在这一点的基础上想到后面的layer是可以share的，但是bn需要用recurrent的。这样下来resnet101与38参数量相当，还能涨一点点。
 
 ---
 ## Crowd Counting
