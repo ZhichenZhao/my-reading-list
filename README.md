@@ -59,7 +59,7 @@
 * 有一些实践经验，比如在训练灭点的时候，如果只画一个圈圈，那么由于前背景像素数量差距较大，训练端的loss很快就会不下降，这里做了一个变形是把灭点做成四个四分之一区域的交集，这样就好了。
 
 ---
-## base model
+## Base model
 ### Rectifier Nonlinearities Improve Neural Network Acoustic Models，ICML，2013
 * 提出了leaky RELU，为了防止一旦进入小与0就回不来，永远不激活的情况，可以让负的那一段又一个很小的斜率。
 
@@ -116,6 +116,11 @@
 
 ### Residual Connections Encourage Iterative Inference， ICLR，2018
 * 对于resnet，有几个观察和探索。说在resnet中，浅层做representation learning，而深层则是feature refinement。为了证明第二点，有两个方面，第一是看h的相对幅度变化，刚开始很大，到后面慢慢变小，第二个实验是去掉最后的一层看看准确率会不会掉很多。在这一点的基础上想到后面的layer是可以share的，但是bn需要用recurrent的。这样下来resnet101与38参数量相当，还能涨一点点。
+
+### Label Refinery: Improving ImageNet Classification through Label Progression，arXiv，2018
+* 总结了分类方面目前留下的主要问题：1.同一张图片里面可能存在多个物体，直接认为就属于哪一个类实际上是反自然的，比如一只猫猫在玩球，标签只有猫；2.物理位置上相近的输出在视觉上不相近；3.做aug的时候裁剪的区域很有可能不是或不能体现目前的类别。本文针对的就是第一个问题，使用一个已经训好了的模型给出标签，这样的标签可能在多个类别中都有大与0的预测输出，然后再训后续的网络，使用KL散度让两个分布接近。
+* 本文中使用KL散度作为loss函数，来衡量两个分布的距离。
+* 其中改变标签的做法在整个类别上做是不对的，对每一张图片来做才有用。
 
 ---
 ## Crowd Counting
