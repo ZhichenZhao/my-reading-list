@@ -241,6 +241,9 @@
 ### Boundary-sensitive Network for Portrait Segmentation，arXiv，2018
 * google做人像分割的，有挺多insight，在监督前景背景的时候，可以监督那些区域是边缘，这样，网络自己可能可以学着去学习遇到边缘了应该怎么处理，第二是加上属性的分类器，把额外的信息传回去，让网络能够自己学习遇到长头发短头发该怎么处理等等。
 
+### Macro-Micro Adversarial Network for Human Parsing，ECCV，2018
+* 用GAN来保持global的语义一致性和local的纹理一致性，点有两个，第一是分到global和local这两个层面都有要做的事情，另一个还是那一点，当他要保证各种一致性而这种一致性又无法用数学公式写出来的时候，就用一个gan来做。
+
 ---
 ## OCR
 ### Detecting Text in Natural Scenes with Stroke Width Transform，CVPR，2010
