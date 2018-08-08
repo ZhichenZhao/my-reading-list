@@ -128,6 +128,9 @@
 * 对于crowd不是直接预测cnn回归器预测人数，而是做heat map，一方面这样的数据可以变相的aug好多，另一方面，从heat map到多少人的变换规律非常清楚，直接数就行了。这样就不要把这个任务也丢给网络来增加难度了。另外提出了一个新的数据集shanghaitech
 ### Switching Convolutional Neural Network for Crowd Counting，CVPR 2017
 * 用一个switch网络从多个尺度的网络里面选一个，两种评价好不好的方式，mse即均方误差，还有mae，均绝对误差。
+### Crowd Counting via Adversarial Cross-Scale Consistency Pursuit, CVPR, 2018
+* 有两个不错的novel的地方，第一是多尺度的预测，平均加起来之后显得很模糊，所以他就用gan来作为额外loss，描述这种说不上来的让feature map变得sharp的loss。
+* 第二点是为了使网络真正能对尺度变化鲁棒，设计了一个loss，使得网络对于原图的输出，和先把图像划分成四块，再过网络，再合起来的结果尽量接近（L2 loss），在这个约束下让网络对尺度尽量鲁棒。
 
 ---
 ## Face Detection
