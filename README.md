@@ -170,6 +170,11 @@
 ### Pose-Robust Face Recognition via Deep Residual Equivariant Mapping，CVPR，2018
 * sensetime的论文，主要是为了解决大pose的问题，从原始特征后面接一个变换输出新特征再加权求和，中间用系数控制正脸和侧脸的比例，相当于把正脸的feature和侧脸的加起来，使用比例松弛一下，这样更接近在同个空间中。
 
+### NormFace：l2 Hypersphere Embedding for Face Verification，ACM MM 2017
+* 提到了几个很有意思的观点：1.在没有bias的时候，softmax会倾向于让特征的幅度变大来更容易的完成分类。如果x的分类能力是a，wx的分类能力是b的话，b就会比a明显好，但是这个scale是w提供的，x本身可能并没有变强，而人脸识别的特殊性在于比对最后用的还是x，归一化后可以抑制这种现象。
+* 建议对softmax中的w，和最后的特征都做norm，但是建议norm到一个更大的值而不是norm到1（比如10）.
+* norm的时候是x/sqrt(x^2+e)，这个e是为了防止归一化崩。
+
 ---
 ## Fine-grained Recognition
 ### Recurrent Attention Convolutional Neural Network for Fine-grained Image Recognition，CVPR，2017，oral
