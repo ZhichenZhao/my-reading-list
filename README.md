@@ -46,6 +46,9 @@
 ### Action Recognition with Coarse-to-Fine Deep Feature Integration and Asynchronous Fusion，AAAI，2018
 * 主要用了多尺度的网络，有个adaptive挺有意思，conv3用top3的action监督，conv4用top2的，conv5用gt监督，这个东西看起来挺有启发意义的。后面的从粗到细的特征用LSTM来输出。在UCF上到了95.2
 
+### ECO: Efficient Convolutional Network for Online Video Understanding，ECCV，2018
+* idea挺好的，3D卷积效果好（只用rgb的情况下），但是太慢，但是3D的好往往在深层才能体现出来，于是先用2D的提一堆帧的特征，然后叠起来再过3D网络，是两种网络的一个权衡，性能保持的还不错的情况下速度提升很快。
+
 ---
 ## Attrubutes
 ### Deep Learning Face Attributes in the Wild，ICCV，2015
