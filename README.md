@@ -244,6 +244,10 @@
 ### MegDet: A Large Mini-Batch Object Detector，submitted to CVPR2018
 * coco2017冠军。在检测中用多机来加大batchsize是挺重要的，因为之前都太小了。另一点就是适应地做好多机上的BN
 
+### CornerNet: Detecting Objects asPaired Keypoints, ECCV, 2018
+* 提出不是检测bbox，而是检测左上和右下的两个corner来检测物体。
+* 在实际的处理中，由于左上角和右下角并没有local evidence来指导出框，需要进行一个corner pooling，即以左上角为起点从左到右，从上到下分别pooling然后加起来。另外为了指导两个corner为什么属于同一个框，要训练一段长度的embedding来进行匹配。
+
 ---
 ## Object Segmentation
 ### Large Kernel Matters —— Improve Semantic Segmentation by Global Convolutional Network,CVPR,2017
