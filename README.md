@@ -320,6 +320,10 @@
 ### Averaging Weights Leads to Wider Optima and Better Generalization,arXiv,2018
 * 提出了一个新奇的观点，把几代存储模型的w平均起来当做初始值继续训练，效果有待验证
 
+### Fixing Weight Decay Regularization in Adam, arXiv, 2017
+* 现在solver中的weight decay，实质上是L2 regularization而不是真正的定义的weigt decay，会发生梯度越大的地方惩罚越小的情况。作者对此做了一些修改，新的solver可以叫做adamW。
+
+
 ---
 ## Style Transfer
 ### Image Style Transfer Using Convolutional Neural Networks，CVPR，2016
