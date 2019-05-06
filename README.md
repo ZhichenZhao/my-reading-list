@@ -204,6 +204,13 @@
 * 这个问题的目的是通过图像，得到<human，verb，object>的三元关系在此之前提出这个任务的论文是：Visual Semantic Role Labeling ，computer science，2015
 
 ---
+## Line Segment Detection
+### Learning Attraction Field Representation for Robust Line Segment Detection, CVPR，2019
+* 解决线段检测问题时，把图片上的所有点都归属一条线，然后让他指向那条线，预测的目标是这个向量。把这个作为一个“场”的概念。
+* 这可以看做是一种“dense”的思想，图像上的每一点都没有闲着，都在发挥作用。因而在之后的投票阶段，结果就可以变得更加置信。这个想法挺好的。
+
+
+---
 ## Low-level Image Processing
 ### Distort-and-Recover：Color Enhancement using Deep Reinforcement Learning，CVPR，2018
 * 用强化学习的思路来做color的enhancement，用当前图像和目标图像的差的t+1和t的差距作为reward，规定每一步可以执行的action（在一个大的离散集合里面挑），然后达到最优的结果，即哪种action都不会有正的reward。
