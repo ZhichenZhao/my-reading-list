@@ -355,6 +355,9 @@
 * 直接使用triplet loss会有一些问题，由于同一个物体的不同位置本身就存在类间方差，强行学会学的不好，所以要求某一类中最小的那个距离小于和负样本中最小的那个的距离就行了。
 * ablation study 模型简化测试。看看取消掉一些模块后性能有没有影响。
 
+### Learning Correspondence from the Cycle-consistency of Time,CVPR,2019(oral)
+* 思想是，一个视频中按照时序向后追踪一段时间，再反过头回来向前追踪，回来的位置和开始的两个位置应该是一样的，依据这一点设计一个loss，使得学到的特征具有时间上的一致性，这其实会使得特征变得discriminative。实验上只用了没有训的网络结构，其实不能说是很promising，但是思想挺有意思。
+
 ---
 ## Zero-shot Learning
 ### discriminative learning of latent features for zero-shot recognition，CVPR，2018
